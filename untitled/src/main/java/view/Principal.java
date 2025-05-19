@@ -21,7 +21,7 @@ public class Principal {
 
         // Teste normal do sistema
         Medico m1 = new Medico("Dra. Ana", "98765-SP", "Patologista");
-        PecaAnatomica braco = new Braco("Direita");
+        PecaAnatomica braco = new Braco("Direito");
         braco.adicionarMarcacao("Lesão exposta");
 
         FormularioPadronizado form = new FormularioPadronizado(braco);
