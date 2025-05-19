@@ -2,36 +2,29 @@ package view;
 
 import controller.RelatorioAnalise;
 import model.*;
-import util.ReconhecimentoVozSphinx;
-
-import java.net.URL;
+import util.ReconhecimentoVozWhisper; // Nova classe de integração
 
 public class Principal {
     public static void main(String[] args) {
-        // Verificação dos caminhos dos modelos no classpath
-        ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
-        URL dictURL = classLoader.getResource("models/ptbr/pt-br.dict");
-        URL lmURL = classLoader.getResource("models/ptbr/pt-br.lm");
-        URL acousticModelURL = classLoader.getResource("models/ptbr/pt-br.cd_cont_200");
-
-        System.out.println("Dict: " + dictURL);
-        System.out.println("LM: " + lmURL);
-        System.out.println("Acoustic Model: " + acousticModelURL);
-
-        // Teste normal do sistema
+        // Informações do médico e da peça
         Medico m1 = new Medico("Dra. Ana", "98765-SP", "Patologista");
-        PecaAnatomica braco = new Braco("Direito");
+        PecaAnatomica braco = new Braco("Direita");
         braco.adicionarMarcacao("Lesão exposta");
 
+        // Preenchimento manual do formulário
         FormularioPadronizado form = new FormularioPadronizado(braco);
         form.preencherChecklist("Lesão aberta próxima ao cotovelo.");
 
-        ReconhecimentoVozSphinx voz = new ReconhecimentoVozSphinx();
+        // Nova chamada: transcrição via Python (Whisper)
+        ReconhecimentoVozWhisper voz = new ReconhecimentoVozWhisper();
         String textoFalado = voz.capturarETranscrever();
 
+        // Geração do relatório
         RelatorioAnalise relatorio = new RelatorioAnalise(m1, braco, textoFalado);
         relatorio.gerarRelatorio();
         relatorio.salvarEmArquivo(); // salva no relatorio.txt
+
+        System.out.println("Relatório salvo com sucesso!");
     }
 }
