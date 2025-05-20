@@ -6,7 +6,7 @@ import os
 
 def gravar_e_transcrever():
     fs = 16000
-    duracao = 5
+    duracao = 15
     nome_arquivo = "gravacao.wav"
 
     print("Gravando...")
