@@ -1,36 +1,34 @@
 package util;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class ReconhecimentoVozWhisper {
 
     public String capturarETranscrever() {
-        StringBuilder resultado = new StringBuilder();
+        String caminhoScript = "C:/Users/Matheus/Documents/GitHub/Sprint-Java/transcreve_whisper.py";
+        String caminhoTxt = "C:/Users/Matheus/Documents/GitHub/Sprint-Java/transcricao.txt";
+
         try {
-            ProcessBuilder pb = new ProcessBuilder("python", "transcreve_whisper.py");
+            ProcessBuilder pb = new ProcessBuilder("python", caminhoScript);
             pb.redirectErrorStream(true);
             Process processo = pb.start();
-
-            BufferedReader reader = new BufferedReader(new InputStreamReader(processo.getInputStream()));
-            String linha;
-            boolean transcricao = false;
-
-            while ((linha = reader.readLine()) != null) {
-                if (linha.trim().equals("Transcrição:")) {
-                    transcricao = true;
-                    continue;
-                }
-                if (transcricao) {
-                    resultado.append(linha).append(" ");
-                }
-            }
-
             processo.waitFor();
 
+            // Ler o conteúdo do arquivo com a transcrição
+            BufferedReader reader = new BufferedReader(new FileReader(caminhoTxt));
+            StringBuilder texto = new StringBuilder();
+            String linha;
+            while ((linha = reader.readLine()) != null) {
+                texto.append(linha).append(" ");
+            }
+            reader.close();
+
+            return texto.toString().trim();
+
         } catch (Exception e) {
-            System.err.println("Erro ao executar script Python: " + e.getMessage());
+            System.err.println("Erro ao executar o script Python ou ler a transcrição: " + e.getMessage());
         }
-        return resultado.toString().trim();
+
+        return "";
     }
 }
