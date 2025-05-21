@@ -7,28 +7,23 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 
-/**
- * Gera relatório baseado na análise médica.
- */
 public class RelatorioAnalise {
     private Medico medico;
     private PecaAnatomica peca;
     private String observacoes;
-    private LocalDate data;
 
     public RelatorioAnalise(Medico medico, PecaAnatomica peca, String observacoes) {
         this.medico = medico;
         this.peca = peca;
         this.observacoes = observacoes;
-        this.data = LocalDate.now();
     }
 
     public void gerarRelatorio() {
-        System.out.println("Relatório de Análise");
+        System.out.println("\nRelatório de Análise");
         System.out.println("Médico: " + medico.getNome());
         System.out.println("Peça: " + peca.identificar());
         System.out.println("Observações: " + observacoes);
-        System.out.println("Data: " + data);
+        System.out.println("Data: " + LocalDate.now());
     }
 
     public void salvarEmArquivo() {
@@ -37,9 +32,9 @@ public class RelatorioAnalise {
             writer.write("Médico: " + medico.getNome() + "\n");
             writer.write("Peça: " + peca.identificar() + "\n");
             writer.write("Observações: " + observacoes + "\n");
-            writer.write("Data: " + data + "\n");
+            writer.write("Data: " + LocalDate.now() + "\n");
         } catch (IOException e) {
-            System.err.println("Erro ao salvar relatório: " + e.getMessage());
+            System.err.println("Erro ao salvar o relatório: " + e.getMessage());
         }
     }
 }

@@ -4,63 +4,57 @@ import controller.RelatorioAnalise;
 import model.*;
 import util.ReconhecimentoVozWhisper;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class Principal {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Coletando dados do médico
-        System.out.print("Nome do médico: ");
-        String nome = scanner.nextLine();
+        List<Medico> medicos = Arrays.asList(
+                new Medico("1", "Matheus", "555189", "Ortopedia"),
+                new Medico("2", "Ana", "123456", "Patologia")
+        );
 
-        System.out.print("CRM do médico: ");
+        System.out.println("=== Bem-vindo ao Sistema de Análise Médica ===");
+        System.out.print("Digite seu nome ou ID: ");
+        String login = scanner.nextLine();
+
+        System.out.print("Digite seu CRM (senha): ");
         String crm = scanner.nextLine();
 
-        System.out.print("Especialidade: ");
-        String especialidade = scanner.nextLine();
-
-        Medico medico = new Medico(nome, crm, especialidade);
-
-        // Coletando dados da peça
-        System.out.print("Tipo da peça anatômica (ex: Braco, Perna): ");
-        String tipo = scanner.nextLine();
-
-        System.out.print("Lado da peça (Direita ou Esquerda): ");
-        String lado = scanner.nextLine();
-
-        PecaAnatomica peca;
-
-        // Aqui você pode criar outras classes (Perna, Cabeça, etc.)
-        if (tipo.equalsIgnoreCase("Braco")) {
-            peca = new Braco(lado);
-        } else {
-            peca = new OutraPeca(tipo, lado);
-
+        Medico medicoLogado = null;
+        for (Medico m : medicos) {
+            if ((m.getId().equalsIgnoreCase(login) || m.getNome().equalsIgnoreCase(login)) && m.autenticar(crm)) {
+                medicoLogado = m;
+                break;
+            }
         }
 
-        System.out.print("Descrição do formulário (checklist): ");
+        if (medicoLogado == null) {
+            System.out.println("❌ Acesso negado. ID/CRM incorretos.");
+            return;
+        }
+
+        System.out.println("\n✅ Login realizado com sucesso. Olá, Dr(a). " + medicoLogado.getNome());
+
+        System.out.print("\nDescreva a peça a ser analisada: ");
         String descricao = scanner.nextLine();
 
-        peca.adicionarMarcacao("Marcado manualmente");
+        PecaAnatomica peca = new PecaSimples(descricao);
+
+        System.out.print("Descrição do formulário (checklist): ");
+        String checklist = scanner.nextLine();
 
         FormularioPadronizado form = new FormularioPadronizado(peca);
-        form.preencherChecklist(descricao);
+        form.preencherChecklist(checklist);
 
-        // Transcrição via Whisper
         ReconhecimentoVozWhisper voz = new ReconhecimentoVozWhisper();
         String textoFalado = voz.capturarETranscrever();
 
-        System.out.println("\nTexto capturado do Python:");
-        System.out.println(textoFalado);
-
-        // Geração e salvamento do relatório
-        RelatorioAnalise relatorio = new RelatorioAnalise(medico, peca, textoFalado);
+        RelatorioAnalise relatorio = new RelatorioAnalise(medicoLogado, peca, textoFalado);
         relatorio.gerarRelatorio();
         relatorio.salvarEmArquivo();
 
         System.out.println("\n✅ Relatório salvo com sucesso!");
-
-        scanner.close();
     }
 }

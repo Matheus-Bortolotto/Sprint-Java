@@ -3,30 +3,25 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Classe abstrata para peças anatômicas.
- */
 public abstract class PecaAnatomica {
-    protected String lateralidade;
+    protected String descricao;
     protected List<String> marcacoes = new ArrayList<>();
 
-    public PecaAnatomica(String lateralidade) {
-        if (!lateralidade.equalsIgnoreCase("Esquerda") && !lateralidade.equalsIgnoreCase("Direita"))
-            throw new IllegalArgumentException("Lateralidade deve ser 'Esquerda' ou 'Direita'");
-        this.lateralidade = lateralidade;
+    public PecaAnatomica(String descricao) {
+        this.descricao = descricao;
     }
 
     public void adicionarMarcacao(String marcacao) {
         marcacoes.add(marcacao);
     }
 
-    public abstract String identificar();
+    public String getDescricao() {
+        return descricao;
+    }
 
     public List<String> getMarcacoes() {
         return marcacoes;
     }
 
-    public String getLateralidade() {
-        return lateralidade;
-    }
+    public abstract String identificar();
 }
