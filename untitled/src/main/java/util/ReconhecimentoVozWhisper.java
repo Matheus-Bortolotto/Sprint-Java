@@ -2,8 +2,12 @@ package util;
 
 import java.io.*;
 
+
+/** Método público */
 public class ReconhecimentoVozWhisper {
 
+
+    /** Método público */
     public String capturarETranscrever() {
         String texto = "";
 

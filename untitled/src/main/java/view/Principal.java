@@ -6,7 +6,11 @@ import util.ReconhecimentoVozWhisper;
 
 import java.util.*;
 
+
+/** Método público */
 public class Principal {
+
+    /** Método público */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
