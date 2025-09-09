@@ -1,0 +1,15 @@
+===== RELATÓRIO DE ANÁLISE =====
+ID Relatório : 2
+Data/Hora    : 2025-09-08T22:25:52.427003400
+
+-- Dados do Médico --
+ID           : af4dda27-ac84-466e-ac10-a43a13f3d428
+Nome         : Matheus
+CRM          : 555189-334
+Especialidade: Ortopedia
+
+-- Peça Analisada --
+Descrição    : rim
+
+-- Observações --
+Boa noite, tudo bem? Eu sou do Tremateus. Hoje eu vou analisar o rio do paciente Lua. Lua tem 32 anos, é alto com cabelos longos. Aparentemente o rio do Lua tem 10 cm de largura, 5 de espessura. O rio parece estar em ótimo estado. Vou fazer tirar uma mão em cima para o laboratório.

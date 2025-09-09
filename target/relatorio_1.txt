@@ -1,0 +1,15 @@
+===== RELATÓRIO DE ANÁLISE =====
+ID Relatório : 1
+Data/Hora    : 2025-09-08T19:27:18.561171700
+
+-- Dados do Médico --
+ID           : 5d372ba5-49a4-4397-ba15-d6c1c7e38acc
+Nome         : Matheus
+CRM          : 555189-302
+Especialidade: Ortopedia
+
+-- Peça Analisada --
+Descrição    : rim
+
+-- Observações --
+Olá, boa noite. Vou analisar um rim do pa...
