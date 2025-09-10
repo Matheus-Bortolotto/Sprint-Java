@@ -1,0 +1,15 @@
+===== RELATÓRIO DE ANÁLISE =====
+ID Relatório : 24
+Data/Hora    : 2025-09-10T19:55:07.191676200
+
+-- Dados do Médico --
+ID           : c1572081-b9d3-456c-96e8-520bb0a52713
+Nome         : Matheus
+CRM          : 555189-988
+Especialidade: Ortopedia
+
+-- Peça Analisada --
+Descrição    : mão
+
+-- Observações --
+Boa noite, tudo bem? Eu sou Dr. Mateus. Hoje eu vim analisar a mão do Mateus. Mateus é um paciente do Luan. O Luan tem um paciente de 32 anos, alto de cabelos longos. Aparentemente todos os exames do Luan deram OK. Vou começar a fazer a análise. A mão do Luan tem 10 cm de largura, 5 de espessura. Aparentemente está tudo OK. Vou tirar uma amostra e mandar para o laboratório.

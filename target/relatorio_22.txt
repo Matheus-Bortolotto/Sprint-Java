@@ -1,0 +1,15 @@
+===== RELATÓRIO DE ANÁLISE =====
+ID Relatório : 22
+Data/Hora    : 2025-09-10T19:49:28.399691800
+
+-- Dados do Médico --
+ID           : 6f73512a-7855-4b2d-90fc-a655e45c72fa
+Nome         : Matheus
+CRM          : 555189-252
+Especialidade: Ortopedia
+
+-- Peça Analisada --
+Descrição    : rim
+
+-- Observações --
+Olá, boa noite, eu sou o doutor Matheus, hoje eu vim analisar o rim do paciente Lua. Lua tem 32 anos, tem cabelos longos, a saúde de todos os exames está de ok. Bom, vou fazer a análise dele aqui para mandar a biópsia para o laboratório. O rim dele tem 10 centímetros de largura e 5 de espessura. Aparentemente o rim dele não tem nenhum problema, vou coletar uma moça e enviar para o laboratório.

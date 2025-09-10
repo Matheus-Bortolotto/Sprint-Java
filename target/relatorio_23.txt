@@ -1,0 +1,15 @@
+===== RELATÓRIO DE ANÁLISE =====
+ID Relatório : 23
+Data/Hora    : 2025-09-10T19:52:44.879109300
+
+-- Dados do Médico --
+ID           : 256d0080-c89a-482a-a9cc-7ec327ae9d5d
+Nome         : Matheus
+CRM          : 555189-707
+Especialidade: Ortopedia
+
+-- Peça Analisada --
+Descrição    : pé
+
+-- Observações --
+apertar para falar e ele gerar o negócio automático, tá ligado?
