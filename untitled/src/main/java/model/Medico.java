@@ -1,23 +1,14 @@
 package model;
 
-
-/** Método público */
+/** Entidade de domínio: Médico */
 public class Medico {
-
-    /** Atributo privado */
     private String id;
-
-    /** Atributo privado */
     private String nome;
-
-    /** Atributo privado */
-    private String crm;
-
-    /** Atributo privado */
+    private String crm;            // usamos string para manter zeros à esquerda
     private String especialidade;
 
+    public Medico() { }
 
-    /** Método público */
     public Medico(String id, String nome, String crm, String especialidade) {
         this.id = id;
         this.nome = nome;
@@ -25,22 +16,21 @@ public class Medico {
         this.especialidade = especialidade;
     }
 
-
-    /** Método público */
-    public boolean autenticar(String inputCrm) {
-        return this.crm.equals(inputCrm);
+    /** Regras simples de autenticação: CRM precisa bater e não pode ser vazio */
+    public boolean autenticar(String crmInformado) {
+        if (crmInformado == null || crmInformado.isBlank()) return false;
+        return crmInformado.trim().equals(this.crm);
     }
 
-
-    /** Método público */
     public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    /** Método público */
     public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
-    /** Método público */
     public String getCrm() { return crm; }
+    public void setCrm(String crm) { this.crm = crm; }
 
-    /** Método público */
     public String getEspecialidade() { return especialidade; }
+    public void setEspecialidade(String especialidade) { this.especialidade = especialidade; }
 }
